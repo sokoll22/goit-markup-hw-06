@@ -22,7 +22,7 @@
     --social-icon-color: #AFB1B8;
     --hero-background-color: #C4C4C4;
     --timing-func: cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-delay-var: 250ms;
+    --transition-delay-var: 1250ms;
 
 }
 
@@ -40,11 +40,14 @@ img {
 }
 /* Class visually-hidden for headers */
 .visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 /* Fonts for headers & margin reset */
@@ -158,8 +161,7 @@ p {
   line-height: 1.2;
   letter-spacing: 0.02em;
 
-  transition-delay: var(--transition-delay-var);
-  transition-timing-function: var(--timing-func);
+  transition: color var(--transition-delay-var) var(--timing-func);
 }
 /* Underline for nav items */
   .current::after {
@@ -174,9 +176,6 @@ p {
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
-
-  transition-delay: var(--transition-delay-var);
-  transition-timing-function: var(--timing-func);
 }
 
 /* ==== Current link color */
@@ -214,8 +213,7 @@ p {
   line-height: 1.2;
   letter-spacing: 0.02em;
 
-  transition-delay: var(--transition-delay-var);
-  transition-timing-function: var(--timing-func);
+  transition: color var(--transition-delay-var) var(--timing-func);
   }
 .mail-link {
   display: flex;
@@ -235,7 +233,9 @@ p {
   width: 16px;
   height: 12px;
   margin-right: 10px;
-  fill: var(--secondary-text-color)
+  fill: var(--secondary-text-color);
+
+  transition: fill var(--transition-delay-var) var(--timing-func);
 }
 .phone-link:hover, 
 .phone-link:focus {
@@ -252,13 +252,17 @@ p {
   height: 16px;
   margin-right: 10px;
   fill: var(--secondary-text-color);
+
+  transition: fill var(--transition-delay-var) var(--timing-func);
 }
 /* == end nav == */
 /* ====End header=== */
 
 
-/* ==== Main CSS */
-/* ==== Index HTML ==== */
+                              /* ==== Main CSS ==== */
+
+        /* ==== Index HTML ==== */
+
 /* ====Hero==== */
 .hero {
   color: var(--main-background-color);
@@ -488,8 +492,7 @@ p {
   height:44px;
   border-radius: 50%;
 
-  transition-delay: var(--transition-delay-var); 
-  transition-timing-function: var(--timing-func);
+  transition: background-color var(--transition-delay-var) var(--timing-func);
 }
 .social-list-link:hover, 
 .social-list-link:focus {
@@ -497,13 +500,11 @@ p {
 }
 
 .social-list-icon {
-  transition-delay: var(--transition-delay-var); 
-  transition-timing-function: var(--timing-func);
-}
-.social-list-icon {
   width: 20px;
   height: 20px;
   fill: var(--social-icon-color);
+  
+  transition: fill var(--transition-delay-var) var(--timing-func);
 }
 .social-list-link:hover .social-list-icon,
 .social-list-link:focus .social-list-icon {
@@ -550,18 +551,15 @@ p {
   width: 170px;
   height: 90px;
 
-  transition-delay: var(--transition-delay-var); 
-  transition-timing-function: var(--timing-func);
+  transition: border var(--transition-delay-var) var(--timing-func);
 }
 
-.clients-icon {
-  transition-delay: var(--transition-delay-var); 
-  transition-timing-function: var(--timing-func);
-}
-.clients-icon {
+  .clients-icon {
   min-width: 45px;
   height: 50px;
   fill: var(--social-icon-color);
+
+  transition: fill var(--transition-delay-var) var(--timing-func);
 }
 
 .clients-link:hover,
@@ -615,8 +613,9 @@ p {
   color: var(--primary-text-color);
   background-color: #F5F4FA;
 
-  transition-delay: var(--transition-delay-var); 
-  transition-timing-function: var(--timing-func);;
+  transition: color var(--transition-delay-var) var(--timing-func), 
+    background-color var(--transition-delay-var) var(--timing-func) ;
+
 }
 .filter-buttons .filter-name:hover,
 .filter-buttons .filter-name:focus {
@@ -636,6 +635,8 @@ p {
   background: #FFFFFF;
   outline: 1px solid #EEEEEE;
   box-sizing: border-box;
+
+  transition: box-shadow var(--transition-delay-var) var(--timing-func);
 }
 
 /* === Overlay hover effect === */
@@ -752,9 +753,10 @@ p {
   margin-bottom: 9px;
 }
 .footer-form {
-
+  margin-right: 93px;
 }
 .footer-list-item-link {
+  transition-property: color;
   transition-delay: var(--transition-delay-var); 
   transition-timing-function: var(--timing-func);
 }
@@ -784,8 +786,12 @@ p {
   background-color: rgba(255,255,255,0.1);
   background-size: cover ;
 
-  transition-delay: var(--transition-delay-var); 
-  transition-timing-function: var(--timing-func);
+  transition: background-color var(--transition-delay-var) var(--timing-func);
+}
+
+.footer-form-items .link {
+  width: 20px;
+  height: 20px;
 }
 
 .footer-form-items:not(:last-child) {
@@ -802,8 +808,64 @@ p {
   background-color: var(--accent-color);
 }
 
+/* === Subscribe form === */
+
+.footer-subscribe-title {
+  color: var(--main-background-color);
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-subscribe-input {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main-background-color);
+  background-color: inherit;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+
+  width: 358px;
+  height: 50px;
+
+  padding-left: 16px;
+}
+
+.footer-subscribe-btn {
+  min-width: 200px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  color: #FFFFFF;
+  background: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  padding: 10px 28px 10px 29px;
+  margin-left: 12px;
+}
+.footer-subscribe-form {
+  display: flex;
+  align-items: center;
+}
+.footer-subscribe-form-icon {
+  width: 34px;
+  height: 34px;
+  padding-left: 10px;
+}
 /* ===End footer */
 
+/* ==== Backdrop & modal form === */
 .backdrop {
   position: fixed;
   top: 0;
@@ -811,7 +873,8 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: all var(--transition-delay-var) var(--timing-func);
+
+  transition: var(--transition-delay-var) var(--timing-func);
 }
 
 .modal {
@@ -825,6 +888,10 @@ p {
   background-color: var(--main-background-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  padding: 40px;
+
+  transition: var(--transition-delay-var) var(--timing-func);
 }
 
 .modal-close-btn {
@@ -845,4 +912,151 @@ p {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.modal-title {
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+.modal-form-input {
+  display: block;
+  transition: border-color var(--transition-delay-var) var(--timing-func);
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding-left: 42px;
+}
+.modal-form-icon {
+  position: absolute;
+  transform: translateY(-50%);
+  transition: fill var(--transition-delay-var) var(--timing-func);
+
+  display: block;
+  top: 50%;
+  left: 12px;
+  width: 18px;
+  height: 18px;  
+}
+.modal-form-input-label {
+  position: relative;
+
+  color: var(--secondary-text-color);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 10px;
+}
+
+
+.modal-form-input-wrapper {
+  position: relative;
+  display: block;
+}
+
+.modal-form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.modal-form-input:focus + .modal-form-icon {
+  fill: var(--accent-color);
+}
+
+
+.modal-form-message {
+  display: block;
+  width: 100%;
+  height: 120px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.143;
+  letter-spacing: 0.01em;
+
+  transition: border-color var(--transition-delay-var) var(--timing-func);
+}
+
+
+.modal-form-message:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  padding: 12px 16px;
+}
+
+.modal-form-message::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+  .modal-form-label-policy {
+    display: flex;
+    align-items:center;
+    flex-wrap: wrap;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
+
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+.modal-form-label-policy-link {
+  color: var(--accent-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  text-decoration-line: underline;
+}
+/* .modal-form-check-policy:checked + .modal-form-label-policy {
+ color: var(--accent-color);
+} */
+.modal-form-label-policy::before {
+  display: inline-block;
+  content: "";;
+  width: 16px;
+  height: 15px;
+  border: 2px solid black ;
+  border-radius: 2px;
+  margin-right: 7px;
+}
+
+.modal-form-check-policy:checked + .modal-form-label-policy::before {
+  border: 2px var(--accent-color) solid;
+  border-radius: 2px;
+  background-image: url(../img/icon-check.jpg);
+  background-position: center;
+}
+
+.modal-form-check-policy:focus + .modal-form-label-policy::before {
+  border: 2px var(--accent-color) solid;
+  border-radius: 2px;
+}
+.modal-form-btn {
+  min-width: 200px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+
+  background-color: var(--accent-color);
+  letter-spacing: 0.06em;
+  color: var(--main-background-color);
+
+  padding: 10px 55px;
+  border: 1px solid black;
+  border-radius: 4px ;
+  align-self: center;
+  cursor: pointer;
 }
