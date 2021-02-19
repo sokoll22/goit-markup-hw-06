@@ -22,7 +22,7 @@
     --social-icon-color: #AFB1B8;
     --hero-background-color: #C4C4C4;
     --timing-func: cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-delay-var: 1250ms;
+    --transition-delay-var: 250ms;
 
 }
 
@@ -597,6 +597,7 @@ p {
 }
 
 .filter-name {
+  display: block;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
@@ -621,6 +622,7 @@ p {
 .filter-buttons .filter-name:focus {
   color: var(--main-background-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
   /* ==== Portfolio  cards */
@@ -662,6 +664,15 @@ p {
   padding: 63px 24px;
 }
 
+.card-link:hover,
+.card-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.card-link {
+  display: block;
+}
+
 .card-link:hover .card-overlay-text,
 .card-link:focus .card-overlay-text {
   transform: translateY(0);
@@ -701,17 +712,6 @@ p {
 .card-text {
   color: var(--accent-color);
 }
-.card:hover,
-.card:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.card-link {
-  
-
-}
-
-
 
   /*----End  fortfolio features---- */
   
@@ -792,6 +792,7 @@ p {
 .footer-form-items .link {
   width: 20px;
   height: 20px;
+  outline: 0;
 }
 
 .footer-form-items:not(:last-child) {
