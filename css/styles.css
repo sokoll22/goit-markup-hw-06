@@ -609,13 +609,15 @@ p {
   padding-left: 22px;
   cursor: pointer;
   border-radius: 5px;
+  outline: 0;
 }
 .filter-buttons .filter-name{
   color: var(--primary-text-color);
   background-color: #F5F4FA;
 
   transition: color var(--transition-delay-var) var(--timing-func), 
-    background-color var(--transition-delay-var) var(--timing-func) ;
+    background-color var(--transition-delay-var) var(--timing-func) ,
+    box-shadow var(--transition-delay-var) var(--timing-func);
 
 }
 .filter-buttons .filter-name:hover,
@@ -849,8 +851,8 @@ p {
 
   color: #FFFFFF;
   background: var(--accent-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  border: 0;
 
   padding: 10px 28px 10px 29px;
   margin-left: 12px;
@@ -949,6 +951,20 @@ p {
   width: 18px;
   height: 18px;  
 }
+
+.name-icon {
+  width: 12px;
+  height: 12px; 
+}
+.phone-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.mail-icon {
+  width: 15px;
+  height: 12px;
+}
 .modal-form-input-label {
   position: relative;
 
@@ -958,7 +974,7 @@ p {
   line-height: 1.17;
   letter-spacing: 0.01em;
 
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 
@@ -1002,15 +1018,15 @@ p {
 .modal-form-message::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
-  .modal-form-label-policy {
+.modal-form-label-policy {
     display: flex;
+    justify-content: center;
     align-items:center;
     flex-wrap: wrap;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
 
-    margin-top: 10px;
     margin-bottom: 30px;
   }
 
@@ -1021,9 +1037,7 @@ p {
   line-height: 1.71;
   text-decoration-line: underline;
 }
-/* .modal-form-check-policy:checked + .modal-form-label-policy {
- color: var(--accent-color);
-} */
+
 .modal-form-label-policy::before {
   display: inline-block;
   content: "";;
