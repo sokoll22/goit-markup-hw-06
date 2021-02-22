@@ -654,9 +654,11 @@ p {
   left: 0; 
   width: 100%;
   height: 100%;
+  opacity: 0;
   
   transform: translateY(100%);
-  transition: transform var(--transition-delay-var) var(--timing-func);
+  transition: transform var(--transition-delay-var) var(--timing-func),
+    opacity var(--transition-delay-var) var(--timing-func);
 
   color: var(--main-background-color);
   background:  rgba(33, 150, 243, 0.9);
@@ -678,6 +680,7 @@ p {
 .card-link:hover .card-overlay-text,
 .card-link:focus .card-overlay-text {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .card-list .filter-name {
@@ -780,6 +783,11 @@ p {
 }
 .footer-form-items {
   display: flex;
+ 
+}
+
+.footer-form-items .link{
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 44px;
@@ -787,15 +795,12 @@ p {
   border-radius: 50%;
   background-color: rgba(255,255,255,0.1);
   background-size: cover ;
+  cursor: pointer;
 
   transition: background-color var(--transition-delay-var) var(--timing-func);
-}
 
-.footer-form-items .link {
-  width: 20px;
-  height: 20px;
-  outline: 0;
-}
+}  
+ 
 
 .footer-form-items:not(:last-child) {
   margin-right: 10px;
@@ -806,10 +811,11 @@ p {
   fill: var(--main-background-color);
 }
 
-.footer-form-items:hover,
-.footer-form-items:focus {
+.footer-form-items .link:hover,
+.footer-form-items .link:focus  {
   background-color: var(--accent-color);
 }
+
 
 /* === Subscribe form === */
 
@@ -853,6 +859,7 @@ p {
   background: var(--accent-color);
   border-radius: 4px;
   border: 0;
+  cursor: pointer;
 
   padding: 10px 28px 10px 29px;
   margin-left: 12px;
@@ -910,6 +917,11 @@ p {
 .close-btn-icon {
   width: 11px;
   height: 11px;
+}
+
+.modal-close-btn:hover .close-btn-icon,
+.modal-close-btn:focus .close-btn-icon {
+  fill: var(--accent-color);
 }
 .is-hidden {
   opacity: 0;
@@ -1050,6 +1062,7 @@ p {
   border: 2px solid black ;
   border-radius: 2px;
   margin-right: 7px;
+  cursor: pointer;
 }
 
 .modal-form-check-policy:checked + .modal-form-label-policy::before {
